@@ -1,0 +1,145 @@
+body {
+    max-width: 100vw;
+    max-height: 100vh;
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+}
+main {
+    max-width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;    
+    
+}
+#sec-formulario{
+    display: flex;
+    margin-bottom: 0px;
+    background-color: #1e195b;
+    
+}
+
+img {
+    padding-top: 20px;
+    
+}
+
+h1 {    
+    display: flex;
+    justify-content: center;
+    align-items:baseline;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-weight: lighter;
+    font-size: 48px;
+    width: 100%;
+    
+}
+
+sub {
+    margin-top: 0px;
+    align-items: baseline;
+    font-size: 18px;
+    vertical-align: bottom;
+    font-family: 'ubuntu', sans-serif;
+    font-weight: lighter;
+}
+
+.subtitulo {
+    display: flex;
+    justify-content: center;
+    margin-top: 0px;
+    margin-bottom: 15px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    font-weight: lighter;
+    text-align: center;
+    
+}
+
+form {
+    padding-top: 30px;
+    padding-bottom: 35px;
+    color: #ffffff;
+    width: 550px;
+    height: 1024px;
+    left: 0px;
+    top: 0px;
+    background-color: #1e195b;
+    font-family: 'Ubuntu', Arial, Helvetica, sans-serif;
+    font-style: 'regular';
+    font-size: mixed;
+    line-height: 100%;      
+}
+input, select, textarea, label {
+    margin-top: 5px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 85%;
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#input-categoria {
+    width: 88%;
+}
+button {
+    background-image: linear-gradient(to top left, rgb(204, 24, 114), rgb(224, 160, 224));
+    font-family: 'ubuntu', sans-serif;
+    font-size: 25px;
+    align-items: center;
+    width: 230px;
+    margin-left: 25px;
+    margin-top: 10px;
+    border-radius: 15px;
+    padding: 10px;
+    row-gap: 25px;
+
+}
+
+#cards {
+    width: 900px;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-left: 10px;
+    
+    
+    
+}
+.conteudo {   
+    
+    width: 280px; 
+    margin: 5px;    
+    box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.4);
+    transition: 0.3s;    
+    /* margin-bottom: 120vh; */
+    border-radius: 15px;
+
+}
+
+.conteudo:hover {
+    box-shadow: 0px 10px 20px 10px rgba(0, 0, 0, 0.5);
+}
+
+p{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
+    color: #442F2F;   
+}
+
+#secaoPesquisa {
+    margin: 0px;
+    
+
+}
+#input-busca {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./imagens/cognito.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <title>Projeto DiH</title>
+</head>
+<body>    
+        <section id="sec-formulario">
+                <form name="texto-form" id="formulario">                
+                    <h1><img class="img-livro" src="./imagens/livro.PNG" alt="imagem livro">
+                        <sub>DEVin</sub>Knowledge <br></h1>
+
+                    <h2 class="subtitulo">Learn, Code and Save</h2><br>
+
+                    <label for="input-titulo">Título</label><br>
+                    <input type="text" name="titulo" id="input-titulo" placeholder="Digite um título" minlength="8" maxlength="64" required><br>
+                    
+                    <label for="input-skill">Linguagem/Skill</label><br>
+                    <input type="text" name="skill" id="input-skill" placeholder="Digite uma linguagem ou skill" minlength="4" maxlength="16" required><br>
+                    
+                    <label for="input-categoria">Categoria</label><br>
+                    <select name="selecao" id="input-categoria" required>
+                        <option value="" data-default disabled selected></option>
+                        <option value="FrontEnd">FrontEnd</option>
+                        <option value="BackEnd">BackEnd</option>
+                        <option value="FullStack">FullStack</option>
+                        <option value="Soft-Skill">Comportamental/Soft</option>
+                        
+                    </select><br>
+                    
+                    <label for="texto-descricao">Descrição</label><br>
+                    <Textarea name="descricao" id="texto-descricao" placeholder="Escreva aqui o detalhamento da sua dica..." minlength="32" maxlength="512" rows="10" cols="50" required></textarea><br>
+                
+                    <label for="input-video">Vídeo do YouTube</label><br>
+                    <input type="text" name="texto-form" id="input-video" placeholder="https://youtube.com" minlength="8" maxlength="64"><br>
+
+                    <button id="btn-limpa">Limpar</button>
+                    <button id="btn-salva">Salvar</button>
+                </form>
+        </section>
+    <main> 
+            <div id="cards">
+                <div class="conteudo">
+                    <p>Total</p>
+                </div>
+                <div class="conteudo">
+                    <p>FrontEnd</p>
+                </div>
+                <div class="conteudo">
+                    <p>BackEnd</p>
+                </div>
+                <div class="conteudo">
+                    <p>FullStack</p>
+                </div>
+                <div class="conteudo">
+                    <p>Soft-Skill</p>
+                </div>
+            </div>    
+<section id="secaoPesquisa">
+             <input type="text" name="busca" id="input-busca">
+             <button id="btn-pesquisa">pesquisa</button>
+             <button id="btn-apaga">limpa</button>
+</section>
+            
+        
+    </main>
+</body>
+</html>
