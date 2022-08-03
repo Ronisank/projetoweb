@@ -30,7 +30,7 @@
                     
                     <label for="input-categoria">Categoria</label><br>
                     <select name="selecao" id="input-categoria" required>
-                        <option value="" data-default disabled selected></option>
+                        <option value="" data-default disabled selected>Escolha uma opção</option>
                         <option value="FrontEnd">FrontEnd</option>
                         <option value="BackEnd">BackEnd</option>
                         <option value="FullStack">FullStack</option>
@@ -44,7 +44,7 @@
                     <label for="input-video">Vídeo do YouTube</label><br>
                     <input type="text" name="texto-form" id="input-video" placeholder="https://youtube.com" minlength="8" maxlength="64"><br>
 
-                    <button id="btn-limpa">Limpar</button>
+                    <button type="reset" id="btn-limpa">Limpar</button>
                     <button id="btn-salva">Salvar</button>
                 </form>
         </section>
@@ -66,11 +66,20 @@
                     <p>Soft-Skill</p>
                 </div>
             </div>    
-<section id="secaoPesquisa">
+        <section id="secaoPesquisa">
              <input type="text" name="busca" id="input-busca">
-             <button id="btn-pesquisa">pesquisa</button>
-             <button id="btn-apaga">limpa</button>
-</section>
+             <button id="btn-pesquisa"><img class="lupa" src="./imagens/lupa-icone.jpg" alt="lupa"></button>
+             <button type="reset" id="btn-apaga">limpa</button>
+        </section>
+        <section id="lista-dicas">
+            <ul>
+                <li id="dicasUm"></li>
+                <li id="dicasT"></li>
+                <li id="dicasQ"></li>
+                <li id="dicasC"></li>        
+                <li id="dicasD"></li>
+            </ul>
+        </section>
             
         
     </main>
