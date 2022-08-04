@@ -12,9 +12,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="./imagens/cognito.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
+    <script src="app.js" type="module"></script>
     <title>Projeto DiH</title>
 </head>
-<body>    
+<body>
+    <main id="container">     
         <section id="sec-formulario">
                 <form name="texto-form" id="formulario">                
                     <h1><img class="img-livro" src="./imagens/livro.PNG" alt="imagem livro">
@@ -43,12 +45,13 @@
                 
                     <label for="input-video">Vídeo do YouTube</label><br>
                     <input type="text" name="texto-form" id="input-video" placeholder="https://youtube.com" minlength="8" maxlength="64"><br>
-
-                    <button type="reset" id="btn-limpa">Limpar</button>
-                    <button id="btn-salva">Salvar</button>
+                    <div id="btn-reset-limpa">        
+                        <button type="reset" id="btn-limpa">Limpar</button>
+                        <button id="btn-salva">Salvar</button>
+                    </div>   
                 </form>
         </section>
-    <main> 
+        <section id="secaoPesquisa">
             <div id="cards">
                 <div class="conteudo">
                     <p>Total</p>
@@ -66,21 +69,28 @@
                     <p>Soft-Skill</p>
                 </div>
             </div>    
-        <section id="secaoPesquisa">
-             <input type="text" name="busca" id="input-busca">
-             <button id="btn-pesquisa"><img class="lupa" src="./imagens/lupa-icone.jpg" alt="lupa"></button>
-             <button type="reset" id="btn-apaga">limpa</button>
-        </section>
-        <section id="lista-dicas">
-            <ul>
-                <li id="dicasUm"></li>
-                <li id="dicasT"></li>
-                <li id="dicasQ"></li>
-                <li id="dicasC"></li>        
-                <li id="dicasD"></li>
+        
+           <div id="pesquisa-apaga">     
+                <input type="text" name="busca" id="input-busca">
+                <button id="btn-pesquisa"><img class="lupa" src="./imagens/lupa.png" alt="lupa"></button>
+                 <button type="button" id="btn-apaga"><img src="./imagens/xis.png" alt="xis" class="icon-xis"></button>
+            </div>
+        
+        <div id="lista-dicas">
+            <div>
+            <ul id="lista-formulario">
+                <li>
+                    <div>   
+                        <h3></h3>
+                        <h4></h4>
+                        <p class="paragrafo"></p>
+                    </div>
+                </li>
+
             </ul>
-        </section>
-            
+            </div>
+        </div>
+    </section>   
         
     </main>
 </body>
