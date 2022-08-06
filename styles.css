@@ -191,12 +191,13 @@ p{
 #lista-dicas p{
     font-family: 'Open Sans', sans-serif;
     font-size: 18px;
-    width: 200px;
+    width: 400px;
     margin-right: 50px;
     text-align: left;
     
 }
 ul, li { 
+    border: 1px solid black;
     list-style: none;
     margin-bottom: 35px;
     margin-top: 10px;

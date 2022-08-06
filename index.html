@@ -44,7 +44,7 @@
                     <Textarea name="descricao" id="texto-descricao" placeholder="Escreva aqui o detalhamento da sua dica..." minlength="32" maxlength="512" rows="10" cols="50" required></textarea><br>
                 
                     <label for="input-video">Vídeo do YouTube</label><br>
-                    <input type="text" name="texto-form" id="input-video" placeholder="https://youtube.com" minlength="8" maxlength="64"><br>
+                    <input type="url" name="texto-form" id="input-video" placeholder="https://youtube.com" minlength="18" maxlength="96"><br>
                     <div id="btn-reset-limpa">        
                         <button type="reset" id="btn-limpa">Limpar</button>
                         <button id="btn-salva">Salvar</button>
@@ -55,40 +55,45 @@
             <div id="cards">
                 <div class="conteudo">
                     <p>Total</p>
+                    <p id="total"></p>
                 </div>
                 <div class="conteudo">
                     <p>FrontEnd</p>
+                    <p id="front"></p>
                 </div>
                 <div class="conteudo">
                     <p>BackEnd</p>
+                    <p id="back"></p>
                 </div>
                 <div class="conteudo">
                     <p>FullStack</p>
+                    <p id="full"></p>
                 </div>
                 <div class="conteudo">
                     <p>Soft-Skill</p>
+                    <p id="soft"></p>
                 </div>
             </div>    
         
            <div id="pesquisa-apaga">     
                 <input type="text" name="busca" id="input-busca">
-                <button id="btn-pesquisa"><img class="lupa" src="./imagens/lupa.png" alt="lupa"></button>
+                <button id="btn-pesquisa">pesquisa</button>
                  <button type="button" id="btn-apaga"><img src="./imagens/xis.png" alt="xis" class="icon-xis"></button>
             </div>
         
         <div id="lista-dicas">
-            <div>
+            
             <ul id="lista-formulario">
                 <li>
-                    <div>   
+                     
                         <h3></h3>
                         <h4></h4>
                         <p class="paragrafo"></p>
-                    </div>
+                    
                 </li>
 
             </ul>
-            </div>
+            
         </div>
     </section>   
         
