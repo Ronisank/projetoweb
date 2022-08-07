@@ -1,22 +1,26 @@
 body {
     margin: 0px;
     padding: 0px;
+    box-sizing: content-box;
 }
 #container {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
+    gap: 10px;
     
 }
+
 #sec-formulario{
     min-width: 200px;
     background: linear-gradient(135deg,#f37049 10%,#422fb5)
     
 }
 #secaoPesquisa {
+    flex-wrap: wrap;
     min-width: 300px;
     flex-grow: 1;
 }
+
 img {
     padding-top: 20px;
     
@@ -55,12 +59,13 @@ sub {
     
 }
 
-form {
+#formulario {
+    
     padding-top: 30px;
     padding-bottom: 35px;
     color: #ffffff;
     width: 550px;
-    height: 950px;
+    height: 900px;
     left: 0px;
     top: 0px;
     background: linear-gradient(135deg,#f37049 10%,#422fb5);
@@ -69,54 +74,63 @@ form {
     font-size: mixed;
     line-height: 100%;      
 }
-input, select, textarea, label {
+input, select, label {
+    margin-top: 5px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    width: 460px;
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+}
+textarea {
+    width: 450px;
+    height: 250px;
+    resize: none;
     margin-top: 5px;
     margin-left: 15px;
     margin-bottom: 10px;
     padding: 10px;
     border-radius: 10px;
-    width: 85%;
-    font-size: 20px;
+    font-size: 18px;
     font-family: 'Open Sans', sans-serif;
-}
-textarea {
-    resize: none;
 }
 
 #input-categoria {
-    width: 89%;
+    width: 475px;
 }
 #btn-reset-limpa button{
     background-image: linear-gradient(135deg,#f37049 10%,#422fb5);
     font-family: 'ubuntu', sans-serif;
-    font-size: 25px;
-    /* align-items: center; */
-    width: 200px;
-    margin: 20px;
-    
+    font-size: 23px;
     border-radius: 15px;
-    /* padding: 10px; */
-    gap: 4px;
+    gap: 10px;
     border: 1px solid #ffffff;
     color: #ffffff;
     flex-grow:  1;
 }
 #btn-reset-limpa {
     display: flex;
-
+    gap: 20px;
+    width: 450px;
+    margin-left: 20px;
+    margin-right: 0px;
 }
 
 #cards {
-    width: 900px;
-    height: 200px;
+    width: 800px;
+    height: 170px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin-left: 10px;    
+    margin-left: 10px;  
+    flex-grow: 1;
+    gap: 5px;  
+    background-image: linear-gradient(135deg,#f37049 10%,#422fb5);
     
 }
 .conteudo {   
-    
     width: 280px; 
     margin: 5px;    
     box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.4);
@@ -137,19 +151,24 @@ p{
     text-align: center;
     color: #442F2F;   
 }
+#total, #front, #back, #full, #soft {
+    font-size: 35px;
+    font-weight: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
 
 #secaoPesquisa {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     
-
 }
+
 #id-pesquisa {
     width: 30px;
     font-size: 10px;
 }
 #input-busca {
     border-radius: 120px;
-    width: 700px;
+    width: 620px;
     height: 30px;
 }
 #pesquisa-apaga {
@@ -157,56 +176,58 @@ p{
     justify-content: left;
     gap: 4px;
 }
-#pesquisa-apaga button {
-    background: transparent;
+#btn-pesquisa{
     align-content: center;
-    max-width: 50px;
+    max-width: 60px;
     max-height: 50px;
     flex-grow: 1;
-    border-radius: 100%;
-    margin-top: 8px;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-sizing: content-box;
+    border: none;
+    
 }
 .lupa {
-    width: 20px;
+    width: 30px;
+    position: relative;
 }
-.icon-xis {
-    width: 20px;
-    align-self: flex-start;
+#btn-apaga {
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    font-size: xx-large;
+    border-radius: 120px;
 }
-#lista-dicas {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.4);
-    transition: 0.3s;    
-    border-radius: 15px;
-    margin-top: 15px;
-    margin-left: 10px;
-    min-width: 450px;
-    min-height: 750px;
-}
-#lista-dicas:hover {
-    box-shadow: 0px 10px 20px 10px rgba(0, 0, 0, 0.5);
-}
-#lista-dicas p{
+
+ul p{
     font-family: 'Open Sans', sans-serif;
-    font-size: 18px;
+    font-size: 15px;
     width: 400px;
     margin-right: 50px;
     text-align: left;
+    word-wrap: break-word;
     
+} 
+ul h3 {
+    margin-top: 1px;
 }
-ul, li { 
-    border: 1px solid black;
+ul {
+    padding: 0px;
     list-style: none;
-    margin-bottom: 35px;
-    margin-top: 10px;
-}
-#lista-formulario {
+    gap: 10px;
     box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.4);
-    transition: 0.3s; 
-    border-radius: 15px;
-     
-    margin-top: 5px; 
-
+    transition: 0.3s;
+    padding: 0px;
 }
+ul :hover {
+    box-shadow: 0px 10px 20px 10px rgba(0, 0, 0, 0.5);
+}
+ul li { 
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 450px;
+    height: 250px;
+}
+

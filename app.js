@@ -21,27 +21,15 @@ const pFull = document.getElementById('full');
 const pSoft = document.getElementById('soft');
 
 // Vetor de controle
-let lista = [{
-    titulo: 'Flex box',
-    skill: 'CSS',
-    categoria: 'FrontEnd',
-    descricao: 'A diferença crucial entre flex-box e grid , além do primeiro ser unidimensional e o outro ser bi-dimensional.',
-    link: 'https://youtu.be/VGD5Uy1C8Cw',
-},
-{
-    titulo: 'Desenvolvimento',
-    skill: 'JavaScript',
-    categoria: 'FrontEnd',
-    descricao: 'A linguagem JavaScript é projetada com base em um simples paradigma orientado a objeto. Um objeto é uma coleção de propriedades, e uma propriedade é uma associação entre um nome (ou chave) e um valor.',
-},
-{
-    titulo: 'Desenvolvimento Python',
-    skill: 'Python',
-    categoria: 'BackEnd',
-    descricao: 'A linguagem JavaScript é projetada com base em um simples paradigma orientado a objeto. Um objeto é uma coleção de propriedades, e uma propriedade é uma associação entre um nome (ou chave) e um valor.',
+let lista = [{}];
 
-},
-];
+let editando = null;
+
+// Função para remover item
+function removerItem(remover) {
+    lista = lista.filter(item => item !== remover)
+    atualizarTela(lista)
+}
 
 // Salvar no localstorage
 function salvarLista() {
@@ -57,7 +45,7 @@ function recuperarLista() {
     }
     atualizarTela(lista)
 }
-
+    // Função para gerar novos itens
 function gerarItens() {
     const novoItem = {
         titulo: inpTitulo.value,
@@ -66,38 +54,82 @@ function gerarItens() {
         descricao: inpTxtArea.value,
         link: inpVideo.value,
     }
+    if (!editando) {
+        lista.push(novoItem);
+        alert('SUCESSO! \n\nDica cadastrada na base de conhecimento.')
+    }
+    else {
+        editando.titulo = novoItem.titulo
+        editando = null;
+        alert('SUCESSO!\n\nDica alterada na base de conhecimento.')
+    }
     
-    lista.push(novoItem);
-
+    iFormulario.reset()
     atualizarTela(lista)
     salvarLista()
 }
+
+function editarItem(EdicaoDeItem) {
+    const {titulo, skill, categoria, descricao, link } = EdicaoDeItem; 
+    
+    inpTitulo.value = titulo
+    inpSkill.value = skill
+    inpCategoria.value = categoria
+    inpTxtArea.value = descricao
+    inpVideo.value = link
+
+
+
+    editando = EdicaoDeItem;
+}
+
+
+    // Função para atualizar os cards de categorias
 function atualizarCategoria() {
-    const total = lista.reduce((acc, item) => {
-        if (item.categoria === 'Total') {
-            return acc + 1
+    const total = lista.reduce((acc, item) => { 
+        if ( item.categoria !== 0) {
+        return acc + 1
+        }
+        else {
+            return acc
         }
     }, 0)
+
     const frontEnd = lista.reduce((acc, item) => {
         if (item.categoria === 'FrontEnd') {
             return acc + 1
         }
+        else {
+            return acc
+        }
     }, 0)
+
     const backEnd = lista.reduce((acc, item) => {
-            if (item.categoria === 'BacktEnd') {
+            if (item.categoria === 'BackEnd') {
                 return acc + 1
-            }
+        } 
+        else {
+            return acc
+        }
     }, 0)
+    
     const fullStack = lista.reduce((acc, item) => {
         if (item.categoria === 'FullStack') {
             return acc + 1
-            }
-    }, 0)
+        }
+        else {
+            return acc
+        }
+    },0)
+    
     const softSkill = lista.reduce((acc, item) => {
-            if (item.categoria === 'Comportamental/Soft') {
-                return acc + 1
-            }
-        }, 0)
+        if (item.categoria === 'Soft-Skill') {
+            return acc + 1
+        }
+        else {
+            return acc
+        }
+    }, 0)
 
     pTotal.innerText = total;  
     pFront.innerText = frontEnd;  
@@ -127,17 +159,30 @@ function criarElementos(item) {
     li.appendChild(descricao);
 
     const botaoExcluir = document.createElement('button')
-    botaoExcluir.innerHTML = 'X'
+    botaoExcluir.innerHTML = '🗑️'
     li.appendChild(botaoExcluir);
 
     const botaoEditar = document.createElement('button')
-    botaoEditar.innerHTML = 'Editar'
+    botaoEditar.innerHTML = '✒️'
     li.appendChild(botaoEditar);
-
+    
     // Botão de link do video com string templates
     const botaoLink = document.createElement('a')
-    botaoLink.innerHTML = `${item.link ? `<a href="${item.link}"><button>Link</button></a>` : ''}`
+    botaoLink.innerHTML = `${item.link ? `<a href="${item.link}"><button>▶️</button></a>` : ''}`
     li.appendChild(botaoLink);
+
+    // Criando botão de evento
+    botaoExcluir.addEventListener('click', () => {
+        confirm('DELETANDO!\n\nVocê tem certeza de que deseja deletar esta dica?')
+        removerItem(item)
+        console.log('remove', item)
+    })
+
+    botaoEditar.addEventListener('click', () => {
+        alert('EDIÇÃO\n\nAs informações da dica selecionada para edição foram enviadas para a\nbarra lateral. Realize as devidas edições e clique em Salvar para finalizar.')
+        editarItem(item)
+        console.log('EDITA', item)
+    })
         
     return li;
 
@@ -156,14 +201,20 @@ iFormulario.addEventListener('submit', (event) => {
     event.preventDefault();
     gerarItens()
     
+iFormulario.addEventListener('reset', (event) => {
+    editando = null
+})    
+ 
 
-    // Botão de pesquisa
+}) 
+  // Botão de pesquisa
 btnPesquisa.addEventListener('click', () => {
-    const filtroLista = lista.filter((item) => 
-        item.titulo.toLocaleLowerCase().includes(inpPesquisa.value.toLocaleLowerCase())
-
+    const listaFiltrada = lista.filter((item) => 
+    item.titulo.toLocaleLowerCase().includes(inpPesquisa.value.toLocaleLowerCase())
+    
     )
-    atualizarTela(filtroLista)
+    atualizarTela(listaFiltrada)
+ 
     
 })
     // Botão para limpar a pesquisa.
@@ -171,8 +222,5 @@ btnLimpar.addEventListener('click', () => {
     inpPesquisa.value = '';
     atualizarTela(lista)
 })
-
-
-})  
 
 recuperarLista()
