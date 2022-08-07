@@ -78,9 +78,9 @@ function editarItem(EdicaoDeItem) {
     inpTxtArea.value = descricao
     inpVideo.value = link
 
-
-
     editando = EdicaoDeItem;
+
+
 }
 
 
@@ -150,7 +150,7 @@ function criarElementos(item) {
     skill.innerHTML = item.skill;
     li.appendChild(skill);
 
-    const categoria = document.createElement('p');
+    const categoria = document.createElement('span');
     categoria.innerHTML = item.categoria;
     li.appendChild(categoria);
 
@@ -163,25 +163,25 @@ function criarElementos(item) {
     li.appendChild(botaoExcluir);
 
     const botaoEditar = document.createElement('button')
-    botaoEditar.innerHTML = '✒️'
+    botaoEditar.innerHTML = '<span>✒️<span/>'
     li.appendChild(botaoEditar);
     
     // Botão de link do video com string templates
     const botaoLink = document.createElement('a')
-    botaoLink.innerHTML = `${item.link ? `<a href="${item.link}"><button>▶️</button></a>` : ''}`
+    botaoLink.innerHTML = `${item.link ? `<a href="${item.link}" target="_blank"><button>▶️</button></a>` : ''}`
     li.appendChild(botaoLink);
 
     // Criando botão de evento
     botaoExcluir.addEventListener('click', () => {
         confirm('DELETANDO!\n\nVocê tem certeza de que deseja deletar esta dica?')
         removerItem(item)
-        console.log('remove', item)
+        
     })
 
     botaoEditar.addEventListener('click', () => {
         alert('EDIÇÃO\n\nAs informações da dica selecionada para edição foram enviadas para a\nbarra lateral. Realize as devidas edições e clique em Salvar para finalizar.')
         editarItem(item)
-        console.log('EDITA', item)
+        
     })
         
     return li;

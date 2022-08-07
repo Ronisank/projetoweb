@@ -2,6 +2,7 @@ body {
     margin: 0px;
     padding: 0px;
     box-sizing: content-box;
+    background-color: #EECDE6;
 }
 #container {
     display: flex;
@@ -96,7 +97,14 @@ textarea {
     font-size: 18px;
     font-family: 'Open Sans', sans-serif;
 }
+#secaoPesquisa {
+    max-width: 1200px;
+    max-height: 850px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 
+}
 #input-categoria {
     width: 475px;
 }
@@ -119,28 +127,28 @@ textarea {
 }
 
 #cards {
-    width: 800px;
+    min-width: 700px;
     height: 170px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     margin-left: 10px;  
     flex-grow: 1;
-    gap: 5px;  
+    gap: 2px;  
     background-image: linear-gradient(135deg,#f37049 10%,#422fb5);
     
 }
 .conteudo {   
     width: 280px; 
     margin: 5px;    
-    box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 8px 10px 0px rgba(243, 152, 152, 0.4);
     transition: 0.3s;    
     border-radius: 15px;
-
+    
 }
 
 .conteudo:hover {
-    box-shadow: 0px 10px 20px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 10px 20px 10px rgba(160, 243, 135, 0.849);
 }
 
 p{
@@ -149,15 +157,17 @@ p{
     font-weight: bold;
     margin-top: 20px;
     text-align: center;
-    color: #442F2F;   
+    color: aliceblue;   
 }
 #total, #front, #back, #full, #soft {
     font-size: 35px;
     font-weight: bold;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: aliceblue;
 }
 
 #secaoPesquisa {
+    max-height: 200px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     
 }
@@ -172,8 +182,8 @@ p{
     height: 30px;
 }
 #pesquisa-apaga {
-    display: flex;
-    justify-content: left;
+    max-width: 800px;
+    max-height: 50px;
     gap: 4px;
 }
 #btn-pesquisa{
@@ -185,11 +195,13 @@ p{
     margin-top: 10px;
     box-sizing: content-box;
     border: none;
+    background-color: #EECDE6;
     
 }
-.lupa {
-    width: 30px;
-    position: relative;
+.lupa {    
+    width: 35px;
+    background-color: transparent;
+    
 }
 #btn-apaga {
     width: 40px;
@@ -198,36 +210,71 @@ p{
     font-size: xx-large;
     border-radius: 120px;
 }
+#lista-dicas {
+    display: flex;
+    max-width: 1250px;
+}
+ul span {
+    font-size: 1vw;
+    font-weight: bold;
+}
 
 ul p{
+    color: aliceblue;
     font-family: 'Open Sans', sans-serif;
-    font-size: 15px;
-    width: 400px;
+    font-size: 0.8vw;
+    width: 380px;
     margin-right: 50px;
     text-align: left;
-    word-wrap: break-word;
+    overflow-wrap: break-word;  
+    word-wrap: break-word; 
+    word-break: break-word;
     
 } 
+#lista-formulario button {
+    background-color: transparent;
+    border: none;
+    margin-bottom: 5px;
+    
+}
+
 ul h3 {
     margin-top: 1px;
 }
-ul {
+ul {  
+    min-width: 900px;
+    display: flex;
+    flex-wrap: wrap; 
     padding: 0px;
     list-style: none;
-    gap: 10px;
+    gap: 5px;
     box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.4);
     transition: 0.3s;
     padding: 0px;
+    
 }
 ul :hover {
-    box-shadow: 0px 10px 20px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 10px 20px 10px rgba(14, 67, 214, 0.295);
+    
 }
 ul li { 
     border: 1px solid black;
     border-radius: 5px;
     margin-bottom: 10px;
-    padding: 10px;
-    width: 450px;
-    height: 250px;
+    padding: 5px;
+    max-width: 400px;
+    min-height: 250px;
+}
+li {
+    color: aliceblue;
+    background-image: linear-gradient(135deg,#f37049 10%,#422fb5);
+    padding-left: 10px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 250px;
+    word-wrap: break-word;
+}
+#lista-formulario {
+    margin-top: 60px;
 }
 
