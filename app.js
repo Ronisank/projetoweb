@@ -45,7 +45,7 @@ function recuperarLista() {
     }
     atualizarTela(lista)
 }
-    // Função para gerar novos itens
+// Função para gerar novos itens
 function gerarItens() {
     const novoItem = {
         titulo: inpTitulo.value,
@@ -54,24 +54,40 @@ function gerarItens() {
         descricao: inpTxtArea.value,
         link: inpVideo.value,
     }
+    if (!novoItem === !editando) {
+        alert('SUCESSO! \n\nDica editada na base de conhecimento.')
+    }
+    else {
+        alert('SUCESSO! \n\nDica cadastrada na base de conhecimento.')
+    }
     if (!editando) {
         lista.push(novoItem);
-        alert('SUCESSO! \n\nDica cadastrada na base de conhecimento.')
     }
     else {
         editando.titulo = novoItem.titulo
-        editando = null;
-        alert('SUCESSO!\n\nDica alterada na base de conhecimento.')
+        editando.skill = novoItem.skill
+        editando.categoria = novoItem.categoria
+        editando.descricao = novoItem.descricao
+
+        editando = null,
+
+        inpTitulo.value = ''
+        inpSkill.value = ''
+        inpTxtArea.value = ''
+
     }
-    
+
     iFormulario.reset()
     atualizarTela(lista)
     salvarLista()
+    inpTitulo.value = ''
+    inpSkill.value = ''
+    inpTxtArea.value = ''
 }
 
 function editarItem(EdicaoDeItem) {
-    const {titulo, skill, categoria, descricao, link } = EdicaoDeItem; 
-    
+    const { titulo, skill, categoria, descricao, link } = EdicaoDeItem;
+
     inpTitulo.value = titulo
     inpSkill.value = skill
     inpCategoria.value = categoria
@@ -84,11 +100,11 @@ function editarItem(EdicaoDeItem) {
 }
 
 
-    // Função para atualizar os cards de categorias
+// Função para atualizar os cards de categorias
 function atualizarCategoria() {
-    const total = lista.reduce((acc, item) => { 
-        if ( item.categoria !== 0) {
-        return acc + 1
+    const total = lista.reduce((acc, item) => {
+        if (item.categoria !== 0) {
+            return acc + 1
         }
         else {
             return acc
@@ -105,14 +121,14 @@ function atualizarCategoria() {
     }, 0)
 
     const backEnd = lista.reduce((acc, item) => {
-            if (item.categoria === 'BackEnd') {
-                return acc + 1
-        } 
+        if (item.categoria === 'BackEnd') {
+            return acc + 1
+        }
         else {
             return acc
         }
     }, 0)
-    
+
     const fullStack = lista.reduce((acc, item) => {
         if (item.categoria === 'FullStack') {
             return acc + 1
@@ -120,8 +136,8 @@ function atualizarCategoria() {
         else {
             return acc
         }
-    },0)
-    
+    }, 0)
+
     const softSkill = lista.reduce((acc, item) => {
         if (item.categoria === 'Soft-Skill') {
             return acc + 1
@@ -131,11 +147,11 @@ function atualizarCategoria() {
         }
     }, 0)
 
-    pTotal.innerText = total;  
-    pFront.innerText = frontEnd;  
-    pBack.innerText = backEnd;  
-    pFull.innerText = fullStack;  
-    pSoft.innerText = softSkill;  
+    pTotal.innerText = total;
+    pFront.innerText = frontEnd;
+    pBack.innerText = backEnd;
+    pFull.innerText = fullStack;
+    pSoft.innerText = softSkill;
 }
 
 // Criação do elemento HTML
@@ -165,7 +181,7 @@ function criarElementos(item) {
     const botaoEditar = document.createElement('button')
     botaoEditar.innerHTML = '<span>✒️<span/>'
     li.appendChild(botaoEditar);
-    
+
     // Botão de link do video com string templates
     const botaoLink = document.createElement('a')
     botaoLink.innerHTML = `${item.link ? `<a href="${item.link}" target="_blank"><button>▶️</button></a>` : ''}`
@@ -175,49 +191,49 @@ function criarElementos(item) {
     botaoExcluir.addEventListener('click', () => {
         confirm('DELETANDO!\n\nVocê tem certeza de que deseja deletar esta dica?')
         removerItem(item)
-        
+
     })
 
     botaoEditar.addEventListener('click', () => {
         alert('EDIÇÃO\n\nAs informações da dica selecionada para edição foram enviadas para a\nbarra lateral. Realize as devidas edições e clique em Salvar para finalizar.')
         editarItem(item)
-        
+
     })
-        
+
     return li;
 
 }
 
 function atualizarTela(listar) {
-    ulListForm.innerHTML ='';
+    ulListForm.innerHTML = '';
     listar.forEach((item) => {
         const elemento = criarElementos(item)
         ulListForm.appendChild(elemento)
     })
-   atualizarCategoria()
+    atualizarCategoria()
 }
 
 iFormulario.addEventListener('submit', (event) => {
     event.preventDefault();
     gerarItens()
-    
-iFormulario.addEventListener('reset', (event) => {
-    editando = null
-})    
- 
 
-}) 
-  // Botão de pesquisa
+    iFormulario.addEventListener('reset', (event) => {
+        editando = null
+    })
+
+
+})
+// Botão de pesquisa
 btnPesquisa.addEventListener('click', () => {
-    const listaFiltrada = lista.filter((item) => 
-    item.titulo.toLocaleLowerCase().includes(inpPesquisa.value.toLocaleLowerCase())
-    
+    const listaFiltrada = lista.filter((item) =>
+        item.titulo.toLocaleLowerCase().includes(inpPesquisa.value.toLocaleLowerCase())
+
     )
     atualizarTela(listaFiltrada)
- 
-    
+
+
 })
-    // Botão para limpar a pesquisa.
+// Botão para limpar a pesquisa.
 btnLimpar.addEventListener('click', () => {
     inpPesquisa.value = '';
     atualizarTela(lista)
