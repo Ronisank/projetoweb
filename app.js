@@ -21,7 +21,7 @@ const pFull = document.getElementById('full');
 const pSoft = document.getElementById('soft');
 
 // Vetor de controle
-let lista = [{}];
+let lista = [];
 
 let editando = null;
 
@@ -229,6 +229,7 @@ btnPesquisa.addEventListener('click', () => {
         item.titulo.toLocaleLowerCase().includes(inpPesquisa.value.toLocaleLowerCase())
 
     )
+    inpPesquisa.value = '';
     atualizarTela(listaFiltrada)
 
 
